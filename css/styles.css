@@ -140,9 +140,11 @@ img {
 }
 
 .logo:hover,
+.logo:focus,
 .list .link:hover,
 .list .link:focus,
-.futer-nav .logo:hover {
+.futer-nav .logo:hover,
+.futer-nav .logo:focus {
   color: var(--accent-color);
 }
 
@@ -193,7 +195,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-
+  z-index: 1;
   width: 100%;
   height: 100%;
 
@@ -207,15 +209,16 @@ img {
   pointer-events: none;
 }
 .backdrop.is-hidden .modal {
-transform: translate(-50%, -50%) scale(0.4);
+  transform: translate(-50%, -50%) scale(0.1);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1) rotate(360deg);
-  transform-origin: center center;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+  z-index: 1;
   min-width: 528px;
   min-height: 581px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -234,12 +237,10 @@ transform: translate(-50%, -50%) scale(0.4);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--primary-white-color);
-  background-image: url("../images/sprite.svg#close");
   background-size: cover;
   background-size: no-repeat;
   cursor: pointer;
 }
-
 
 .advantage,
 .operations,
@@ -339,11 +340,11 @@ transform: translate(-50%, -50%) scale(0.4);
   margin-left: 30px;
 }
 
-.our-work .item {
+.operations .item {
   position: relative;
 }
 
-.our-work .text {
+.operations .text {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -356,6 +357,7 @@ transform: translate(-50%, -50%) scale(0.4);
 
   color: var(--primary-white-color);
   background-color: var(--background-operation-icon);
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -440,7 +442,8 @@ transform: translate(-50%, -50%) scale(0.4);
   background-color: var(--accent-color);
 }
 
-.futer-link .link:hover {
+.futer-link .link:hover,
+.futer-link .link:focus {
   background-color: var(--accent-color);
 }
 
@@ -465,7 +468,8 @@ transform: translate(-50%, -50%) scale(0.4);
   fill: var(--second-border-colo);
 }
 
-.clients-link:hover {
+.clients-link:hover,
+.clients-link:focus {
   border-color: var(--accent-color);
   fill: var(--accent-color);
 }
@@ -540,7 +544,8 @@ transform: translate(-50%, -50%) scale(0.4);
   justify-content: space-between;
   margin-top: 20px;
 }
-.our-link .item:hover {
+.our-link .item:hover,
+.our-link .item:focus {
   background-color: var(--accent-color);
 }
 
@@ -640,7 +645,8 @@ transform: translate(-50%, -50%) scale(0.4);
 .portfolio .link {
   text-decoration: none;
 }
-.portfolio .item:hover {
+.portfolio .item:hover,
+.portfolio .item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -695,6 +701,7 @@ transform: translate(-50%, -50%) scale(0.4);
   position: absolute;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: auto;
   top: 0;
   left: 0;
   margin: 0;
@@ -708,7 +715,9 @@ transform: translate(-50%, -50%) scale(0.4);
   letter-spacing: 0.03em;
 }
 .portfolio .link:hover .product-overlay::before,
-.portfolio .link:hover .product-overlay .text {
+.portfolio .link:hover .product-overlay .text,
+.portfolio .link:focus .product-overlay::before,
+.portfolio .link:focus .product-overlay .text {
   transform: translateY(0);
 }
 
